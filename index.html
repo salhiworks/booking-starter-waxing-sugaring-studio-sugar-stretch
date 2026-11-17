@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Plain Sugar — waxing &amp; sugaring in East Austin</title>
+    <meta name="description" content="An independent waxing and sugaring studio in East Austin: brows, lip &amp; chin, underarms, legs, bikini line and Brazilian, each with wax or sugar paste. Book online." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Plain Sugar — waxing &amp; sugaring in East Austin" />
+    <meta property="og:description" content="An independent waxing and sugaring studio in East Austin: brows, lip &amp; chin, underarms, legs, bikini line and Brazilian, each with wax or sugar paste. Book online." />
+    <meta name="theme-color" content="#f2a33a" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- The hero photo: the wide pill from 600 px, the upright crop below.
+         imagesizes must match HERO_SIZES / SMALL in src/components/Hero.tsx. -->
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      media="(min-width: 600px)"
+      imagesrcset="/photos/hero-reach-960.avif 960w, /photos/hero-reach-1440.avif 1440w, /photos/hero-reach-1920.avif 1920w, /photos/hero-reach-2560.avif 2560w"
+      imagesizes="(min-width: 1024px) min(60vw, 56rem), 100vw"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      media="(max-width: 599px)"
+      imagesrcset="/photos/hero-reach-phone-480.avif 480w, /photos/hero-reach-phone-800.avif 800w, /photos/hero-reach-phone-1200.avif 1200w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

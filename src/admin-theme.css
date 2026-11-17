@@ -1,0 +1,9 @@
+/*
+ * The packaged dashboard keeps its own design. The site brands it with one
+ * thing — its accent, per appearance (INTEGRATION.md §10). Sugar Stretch's action
+ * colour is burnt caramel carrying white text, so Light uses it as is; on the dark
+ * dashboard Dark uses the amber of the paste with burnt-sugar text. Owner monogram,
+ * primary buttons, Confirm, focus rings, selection and the schedule's "now" line follow it.
+ */
+:root .pbe-admin[data-mode='light'] { --pbe-accent: #8a3a0e; --pbe-accent-text: #ffffff; } /* white on burnt caramel ≈7.9:1 */
+:root .pbe-admin[data-mode='dark']  { --pbe-accent: #f2a33a; --pbe-accent-text: #2a1409; } /* amber on a near-black dashboard; burnt-sugar text ≈8.3:1 */

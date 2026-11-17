@@ -1,0 +1,280 @@
+/*
+ * Plain Sugar — design tokens (Sugar Stretch).
+ * The ONLY file with raw colours, fonts, sizes and spacing.
+ *
+ * The idea: sugar paste, pulled. Warm, glossy, elastic — and said plainly. Three colour fields
+ * carry the page: AMBER (the paste — the first screen, the booking band), SUGAR WHITE (the reading
+ * pages) and BURNT SUGAR (the deep caramel-brown of the comparison band, the booking sheet's header
+ * and the footer). One deep caramel accent, owner-editable, carries the buttons and the slanted words.
+ *
+ * Type is one variable family that STRETCHES: Anybody, width 50–150 %. Headings are set wide and
+ * heavy; the owner's *emphasised* words are set narrow and slanted in the same family — the same
+ * letters, pulled and squeezed. Headings widen into place as they arrive (off under reduced motion).
+ * DM Sans carries the reading text. Photographs sit in long rounded pills, like a drop of paste.
+ * The one ornament is the strand (components/Strand.tsx): two rounded ends and a thin waist.
+ *
+ * Token names are shared with the other Niche Pack starters (so booking.css reads the same
+ * everywhere); the comments say what each one is here.
+ */
+:root {
+  /* ── Colour ─────────────────────────────────────────────── */
+  --paper: #fffaf3;          /* sugar white — the reading pages */
+  --raised: #ffffff;         /* white — inputs, the booking sheet, choices */
+  --oat: #fdebd0;            /* soft amber — the recipe band, the booking summary */
+  --oat-deep: #f6d8ab;       /* frames while loading, skeletons */
+  --sage-100: #fff3e2;       /* quiet highlights */
+  --sage-200: #fbe0b6;       /* tags, done steps, selection */
+  --rule: #ecd9c2;           /* hairlines (decorative) */
+  --line-input: #7a5a45;     /* input and icon-button borders (≥ 3:1 on sugar, soft amber and white) */
+  --line-soft: #c4a284;      /* borders of choice buttons named by their own text */
+  --mark: #2c7a47;           /* the "open" dot (≥ 3:1) */
+  --ink: #2a1409;            /* burnt sugar — 17:1 on sugar white */
+  --ink-soft: #46291a;       /* reading text — 13:1 */
+  --muted: #6e5141;          /* secondary text — 7:1 on sugar white, 6:1 on soft amber */
+  --clay: #a3201b;           /* errors only (with an icon or words, never colour alone) */
+  --ply: #d8b48d;            /* decorative only */
+  --honey-wash: #fff3e2;
+  --scrim: rgb(42 20 9 / 0.1);
+  --veil: rgb(30 14 6 / 0.62); /* the page behind the booking sheet */
+  --clay-wash: color-mix(in oklab, var(--clay) 6%, var(--raised));
+  --mark-halo: color-mix(in oklab, var(--mark) 22%, transparent);
+
+  /* Amber: the paste. The first screen and the booking band (never owner-editable). */
+  --amber: #f2a33a;          /* burnt sugar on amber 8.3:1 */
+  --amber-deep: #e08f22;     /* a pressed edge on amber */
+  --on-amber: var(--ink);
+  --on-amber-soft: #46291a;  /* 6.1:1 on amber */
+  --amber-line: rgb(42 20 9 / 0.28);
+
+  /* Burnt sugar: the comparison band, the booking sheet's header, the footer (never owner-editable). */
+  --forest: #2a1409;         /* burnt sugar band */
+  --forest-2: #3a1f10;       /* a raised panel */
+  --forest-3: #4b2a17;       /* a lifted panel, hover */
+  --on-forest: #fff4e4;      /* 16:1 on burnt sugar */
+  --on-forest-soft: #f0d8bb; /* 12:1 */
+  --on-forest-faint: #c9a585; /* 7.4:1 — small print on burnt sugar only */
+  --forest-line: #4b2c19;
+  --forest-line-strong: #6f4a31;
+  --light: #ffffff;
+
+  /* Owner-editable (brand.accent) — set on <html> at run time.
+     A DEEP colour that carries white text (the editor checks any new colour at 4.5:1
+     against white): buttons, the slanted words, selected choices, state edges. */
+  --accent: #8a3a0e;         /* burnt caramel — white on it 7.9:1 */
+  --accent-strong: color-mix(in oklab, var(--accent) 86%, #000);
+  --accent-deep: color-mix(in oklab, var(--accent) 66%, #000);
+  --accent-tint: color-mix(in oklab, var(--accent) 12%, var(--raised));
+  --accent-wash: color-mix(in oklab, var(--accent) 6%, var(--raised));
+  --on-accent: #ffffff;
+  --on-accent-soft: #fbe6d6;
+  --accent-text: var(--accent);   /* 7.4:1 on sugar white */
+  --accent-edge: var(--accent);
+  --accent-line: var(--accent-deep);
+  --focus: var(--ink);
+  /* The accent on burnt sugar: amber, so highlights and focus read (8:1). */
+  --accent-glow: var(--amber);
+
+  /* The two methods — a solid caramel dot for wax, an amber ring for sugar (never colour alone: always named). */
+  --wax: #8a3a0e;
+  --sugar: #f2a33a;
+
+  /* Kept for the shared booking styles (the scaffold's ornament tokens). */
+  --sight-color: var(--ink);
+  --sight-w: 2.75rem;
+  --sight-tick: 0.5625rem;
+  --sight-rule: 1px;
+  --staff-height: 3px;
+  --staff: linear-gradient(90deg, var(--amber) 0 100%);
+  --staff-on-dark: var(--staff);
+  --ticks-on-dark: var(--staff);
+  --tick-tall: var(--staff-height);
+  --marker-bar: 0.375rem;
+
+  /* ── Type ───────────────────────────────────────────────── */
+  --font-display: 'Anybody Variable', 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
+  --font-text: 'DM Sans Variable', 'Helvetica Neue', Arial, sans-serif;
+  --font-sans-display: var(--font-display);
+  --font-mono: var(--font-text);
+
+  --text-micro: 0.75rem;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-md: clamp(1rem, 0.97rem + 0.12vw, 1.0625rem);
+  --text-lg: clamp(1.0625rem, 1rem + 0.35vw, 1.3125rem);
+  --text-xl: clamp(1.375rem, 1.2rem + 0.8vw, 1.875rem);
+  --text-2xl: clamp(1.75rem, 1.3rem + 1.8vw, 2.875rem);
+  --text-3xl: clamp(2.125rem, 1.2rem + 3.6vw, 4.75rem);   /* section titles (set wide) */
+  /* The first screen: by width AND by height, so two lines always leave room for the action. */
+  --text-hero: clamp(2.6rem, min(11.2vw, 15.5svh), 10.5rem);
+  --text-mega: clamp(3rem, 13.6vw, 19rem);                /* the footer name mark */
+  --text-statement: clamp(1.75rem, 1.2rem + 2.2vw, 3.25rem);
+  --text-recipe: clamp(3rem, 1rem + 9vw, 9.5rem);         /* the three recipe words */
+  --text-numeral: clamp(2.25rem, 1.8rem + 1.8vw, 3.25rem);
+  --text-code: clamp(1.875rem, 1.6rem + 1.2vw, 2.375rem);
+  --text-step: clamp(1.75rem, 1.5rem + 0.8vw, 2.25rem);
+  --text-sheet: clamp(1.375rem, 1.25rem + 0.4vw, 1.625rem);
+  --text-service: clamp(1.375rem, 1.2rem + 0.7vw, 1.875rem);
+  --text-area: clamp(1.375rem, 1.1rem + 1vw, 2.125rem);   /* an area's name in the menu */
+  --text-zone: clamp(1.75rem, 1.2rem + 1.6vw, 2.75rem);   /* a zone's name in the menu */
+  --text-price: clamp(1.375rem, 1.25rem + 0.5vw, 1.75rem);
+  --text-fact: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);
+  --text-wordmark: 1.375rem;
+  --text-footer-name: var(--text-mega);
+  --text-card: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
+  --text-step-n: clamp(2.5rem, 2rem + 1.6vw, 3.75rem);
+  --text-method: clamp(3rem, 1.5rem + 5vw, 6.5rem);    /* "Wax" / "Sugar" over the comparison */
+  --text-feature: clamp(1.75rem, 1.3rem + 1.4vw, 2.625rem);
+
+  --leading-display: 0.88;
+  --leading-heading: 0.94;
+  --leading-body: 1.6;
+  --leading-tight: 1.2;
+
+  --tracking-display: -0.02em;
+  --tracking-eyebrow: 0.12em;
+  --tracking-button: 0;
+  --tracking-code: 0.42em;
+  --tracking-tag: 0.08em;
+  --tracking-wordmark: -0.01em;
+  --tracking-mono: 0.02em;
+  --tracking-label: 0.1em;
+
+  --weight-text: 400;
+  --weight-strong: 640;
+  --weight-medium: 540;
+  --weight-display: 780;
+  --weight-light: 300;
+  --weight-sans-display: 780;
+  --weight-squeeze: 640;     /* the narrow, slanted words */
+
+  /* The stretch: headings wide, emphasised words narrow; labels a touch wide. */
+  --stretch-display: 128%;
+  --stretch-squeeze: 58%;
+  --stretch-start: 82%;      /* where a heading starts before it widens into place */
+  --stretch-label: 112%;
+  --stretch-text: 100%;
+
+  --heading-font: var(--font-display);
+  --heading-weight: var(--weight-display);
+  --heading-stretch: var(--stretch-display);
+  --heading-tracking: -0.015em;
+  --heading-light-weight: var(--weight-squeeze);
+
+  --measure: 62ch;
+  --measure-lede: 38ch;
+  --measure-title: 16ch;
+
+  /* ── Space ──────────────────────────────────────────────── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8.5rem;
+
+  --gutter: clamp(1rem, 4vw, 3.5rem);
+  /* Vertical rhythm: three section paddings and one heading gap. */
+  --section-pad: clamp(4rem, 2rem + 4.4vw, 7.5rem);
+  --section-pad-feature: clamp(3.5rem, 1.75rem + 4vw, 6.5rem);
+  --section-pad-compact: clamp(3.25rem, 1.75rem + 3.2vw, 5.5rem);
+  --head-gap: clamp(2rem, 1.25rem + 2.4vw, 3.75rem);
+  --desk-pad: clamp(var(--space-5), 4vw, var(--space-8));
+  /* One centred shell for every section, header and band: words and photographs never drift to the
+     screen's edges on wide monitors. */
+  --page-max: 84rem;
+  --header-height: 4.25rem;
+  --header-bar: 4.25rem;
+  --sheet-width: 60rem;
+
+  /* ── Sizes ──────────────────────────────────────────────── */
+  --tap: 2.75rem;
+  --control: 3.25rem;
+  --input: 3rem;
+  --chip: 2.75rem;
+  --day-cell: 2.75rem;
+  --day-card-w: 4rem;
+  --day-card-h: 5.25rem;
+  --dot: 0.3125rem;
+  --method-dot: 0.75rem;
+  --drop: 0.75rem;
+  --edge: 3px;
+  --hairline: 1px;
+  --rule-strong: 2px;
+  --focus-width: 2px;
+  --focus-offset: 3px;
+  --logo-height: 1.875rem;
+  --logo-max: 11rem;
+  --summary-width: 17rem;
+  --time-min: 6rem;
+  --label-col: 7rem;
+  --form-max: 34rem;
+  --code-width: 15rem;
+  --code-height: 4rem;
+  --sticky-offset: 6rem;
+  --status-dot: 0.5rem;
+  --skeleton-block: 20rem;
+  --skeleton-times: 9rem;
+  --text-label: 0.75rem;
+  --strand-w: 1.75rem;
+  --strand-h: 0.5rem;
+
+  /* ── Shape ──────────────────────────────────────────────── */
+  /* Photographs as long rounded pills (a drop of paste); panels softly rounded; actions as pills. */
+  --radius-0: 0;
+  --radius-1: 4px;
+  --radius-2: 10px;
+  --radius-card: 1.25rem;
+  --radius-photo: 999px;
+  --radius-photo-soft: 2rem;
+  --radius-button: 999px;
+  --radius-nail: 50%;
+  --radius-pill: 999px;
+  --shadow-soft: 0 -0.5rem 1.5rem var(--scrim);
+  --shadow-top: 0 0.5rem 1.5rem var(--scrim);
+  --shadow-print: 0 1.25rem 2.5rem -1.25rem rgb(42 20 9 / 0.3);
+  --shadow-sheet: -1.5rem 0 4rem rgb(42 20 9 / 0.28);
+  --shadow-option: 0 0.75rem 1.5rem -0.75rem rgb(42 20 9 / 0.35);
+
+  /* ── Motion ─────────────────────────────────────────────── */
+  --dur-quick: 180ms;
+  --dur-step: 280ms;
+  --dur-enter: 900ms;
+  --dur-photo: 1100ms;
+  --dur-stretch: 1300ms;     /* a heading widening into place */
+  --dur-sheet: 420ms;
+  --stagger: 90ms;
+  --dur-shimmer: 1600ms;
+  --dur-spin: 900ms;
+  --ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.65, 0, 0.35, 1);
+  /* Elastic, like paste letting go: a little overshoot, then rest. */
+  --ease-stretch: cubic-bezier(0.34, 1.36, 0.5, 1);
+  --rise: 1.25rem;
+  --settle-scale: 1.03;
+  --hover-scale: 1.025;
+
+  /* ── Layers ─────────────────────────────────────────────── */
+  --layer-sticky: 5;
+  --layer-banner: 10;
+  --layer-header: 8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-quick: 1ms;
+    --dur-step: 1ms;
+    --dur-enter: 1ms;
+    --dur-photo: 1ms;
+    --dur-stretch: 1ms;
+    --dur-sheet: 1ms;
+    --stagger: 0ms;
+    --rise: 0px;
+    --settle-scale: 1;
+    --hover-scale: 1;
+    --stretch-start: var(--stretch-display);
+  }
+}
